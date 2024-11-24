@@ -1,6 +1,6 @@
-.shopContainer{
-  max-width:700px;
-  border:2px solid black;
+.shopContainer {
+  max-width: 700px;
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -9,21 +9,29 @@
   border-radius: 12px;
   margin: 0 auto;
 }
-.card{
+.card {
   border: 2px solid black;
   border-radius: 10px;
   padding: 0.8rem;
-
 }
-.portal{
+.portal {
   border: 2px solid black;
   border-radius: 10px;
   padding: 1rem 2rem;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: cadetblue;
+}
+.portal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 /* Blur background */
 .blur {
@@ -36,13 +44,13 @@
   pointer-events: none;
 }
 
-body{
+body {
   background-color: burlywood;
 }
-span{
+span {
   font-size: 18px;
   font-weight: bold;
 }
-button{
+button {
   cursor: pointer;
 }
