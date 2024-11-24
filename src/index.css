@@ -1,0 +1,48 @@
+.shopContainer{
+  max-width:700px;
+  border:2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+.card{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0.8rem;
+
+}
+.portal{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: cadetblue;
+}
+/* Blur background */
+.blur {
+  filter: blur(5px); /* Adjust the blur strength */
+  transition: filter 0.3s ease; /* Smooth transition */
+}
+
+/* To prevent interactions with blurred content */
+.no-pointer-events {
+  pointer-events: none;
+}
+
+body{
+  background-color: burlywood;
+}
+span{
+  font-size: 18px;
+  font-weight: bold;
+}
+button{
+  cursor: pointer;
+}
