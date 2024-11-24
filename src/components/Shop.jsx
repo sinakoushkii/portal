@@ -3,8 +3,16 @@ import PortalComponent from "./PortalComponent";
 
 const Shop = () => {
   const [showPortal, setShowPortal] = useState(false);
-  const showPortalHandler = () => {
-    setShowPortal((prev) => !prev);
+  const [selectedCard,setSelectedCard]=useState(null)
+
+  const cardDetail=[
+    { id: 1, title: "Card 1", description: "This is the first card." },
+    { id: 2, title: "Card 2", description: "This is the second card." },
+  ]
+
+  const showPortalHandler = (card) => {
+    setSelectedCard(card)
+    setShowPortal(true);
   };
 
   const closePortalHandler=()=>{
@@ -15,34 +23,21 @@ const Shop = () => {
     <div
       className={`${showPortal ? "blur no-pointer-events" : ""} shopContainer`}
     >
+    {cardDetail.map(card=>(
       <div className="card">
-        <h2>Card 1</h2>
-        <h3>Image 2</h3>
+        <h2>{card.title}</h2>
         <p>
-          <span>Caption 2:</span> Proident anim enim commodo quis ex nostrud ex
-          aliquip. Non deserunt eiusmod adipisicing sint ex consectetur ut
-          laboris quis Lorem quis. Nulla dolore in incididunt tempor excepteur
-          sit exercitation veniam. Officia elit veniam reprehenderit elit
-          consectetur.
+          <span>{card.title}:</span>
+          {card.description}
         </p>
-        <button onClick={() => showPortalHandler()}>Detail</button>
+        <button onClick={() => showPortalHandler(card)}>Detail</button>
       </div>
-      <div className="card">
-        <h2>Card 2</h2>
-        <h3>Image 2</h3>
-        <p>
-          <span>Caption 2:</span> Proident anim enim commodo quis ex nostrud ex
-          aliquip. Non deserunt eiusmod adipisicing sint ex consectetur ut
-          laboris quis Lorem quis. Nulla dolore in incididunt tempor excepteur
-          sit exercitation veniam. Officia elit veniam reprehenderit elit
-          consectetur.
-        </p>
-        <button onClick={() => showPortalHandler()}>Detail</button>
-      </div>
+    ))}
       {showPortal && (
-        <PortalComponent closePortal={(e)=>closePortalHandler(e)}>
+        <PortalComponent closePortal={(e)=>closePortalHandler(e)} detail={selectedCard}>
           <div>
-            <h2>This is rendered in a portal!</h2>
+            <h2>{selectedCard.title}</h2>
+            <p>{selectedCard.description}</p>
           </div>
         </PortalComponent>
       )}
