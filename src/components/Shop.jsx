@@ -7,6 +7,10 @@ const Shop = () => {
     setShowPortal((prev) => !prev);
   };
 
+  const closePortalHandler=()=>{
+    setShowPortal(false)
+  };
+
   return (
     <div
       className={`${showPortal ? "blur no-pointer-events" : ""} shopContainer`}
@@ -36,10 +40,9 @@ const Shop = () => {
         <button onClick={() => showPortalHandler()}>Detail</button>
       </div>
       {showPortal && (
-        <PortalComponent closePortal={()=>setShowPortal(false)}>
+        <PortalComponent closePortal={(e)=>closePortalHandler(e)}>
           <div>
             <h2>This is rendered in a portal!</h2>
-            <button onClick={() => setShowPortal(false)}>Close</button>
           </div>
         </PortalComponent>
       )}
